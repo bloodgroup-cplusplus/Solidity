@@ -88,4 +88,45 @@ renderScene()
     this.renderer.render(this.scene,this.camera)
 }
 
+//loading the model 
+//use the built-in three.js GLTF loader to add the ready player me into the scene suing hte URL returened from IFRMAEM
+// additional code changes the position and scale to amake the model beteter fitlt the screen
+//
+async loadModel ()
+{
+    const gltf = await this.loadGLTF(this.props.avatarURL)
+    this.avatar = gltf.scene.childern[0]
+    this.avatar.position.set(0,-4,0)
+    this.avatar.scale.setScalar(7.5) this scene.add(this avatar)
+}
+
+// add the helper function 
+loadGLTF ( url)
+{
+    return new Promise ( (resolve) = > 
+        {
+            const  loader = new.GLTFLoader()
+            loader.load(url, (gltf) => resolve(gltf))
+        })
+}
+
+// call the function in component did mount
+
+async componentDidMount()
+{
+    this.loadModel()
+}
+
+
+// and overload component did update and add some logic to hid the renderer while the iframe is open 
+
+async componentDidUpdate (oldProps)
+{
+    if(this.props?avatarURL && this.props?.avatarUrl ! == oldProps?avatarUrl)
+    {
+        this.loadModel()
+    }
+
+    this.renderer.domElement.style.cssText = `display: ${!this.props.showIFrame ? 'block': 'none'}`
+}
 
