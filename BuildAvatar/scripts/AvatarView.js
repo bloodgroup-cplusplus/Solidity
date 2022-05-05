@@ -75,3 +75,17 @@ loadBackground (url.renderer)
 
 
 
+// Now that we have our scene and camera created, we can create our render loop
+
+async componentDidMount()
+{
+    this.renderer.setAnimationLoop(this.renderScene.bind(this))
+}
+
+
+renderScene()
+{
+    this.renderer.render(this.scene,this.camera)
+}
+
+
