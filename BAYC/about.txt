@@ -1,0 +1,25 @@
+From the article (https://betterprogramming.pub/bored-ape-yacht-club-smart-contract-breakdown-6c254c774394)
+Bored Apes need no introduction . 
+Questions to Ponder
+
+    * What's the utility of an APE? what do you really get if you buy one?
+    * How do they actually implement their promise land of merch, exclusive access, etc?
+    * How is access control implemented ?
+    * How are secondary payments (royalities) implemented ?
+
+In this article, we are answering these questions. During the exploration, we will also learn about 
+
+    * The market dynamics during the NFT sale.
+    * How much founders of BAYC earned. 
+    * A silly bug of BAYC and how other NFTs blindly copied it 
+
+
+Here is the outline of this article.
+
+    * ERC721 - the NFT standard 
+    * BAYC contract source code 
+    * What happened after contract deployment 
+
+
+ERC721 - THE NFT standard 
+Check the ERC721 INTERFACE CODE 
